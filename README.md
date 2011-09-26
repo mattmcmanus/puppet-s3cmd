@@ -1,13 +1,13 @@
 ## s3cmd Puppet Module
 
-__Work in progress__
+*Work in progress*
 
-Installs and automatically configures s3cmd. Useful for use with other modules or classes that have backup functionality
+Installs and automatically configures [s3cmd](http://s3tools.org/s3tools). Useful for use with other modules or classes that have backup functionality
 
 ### Required Varibles
 
 * **$aws_access_key_id**
-$ **$aws_secret_access_key**
+* **$aws_secret_access_key**
 
 ### Sample Setup
 
@@ -15,6 +15,13 @@ $ **$aws_secret_access_key**
     $aws_secret_access_key="xxxxx"
     
     include s3cmd
+    
+    cron { 'mysql_backup_s3':
+      command => "s3cmd sync --delete-removed --skip-existing /var/backup/mysql/ s3://${s3_bucket}/databases/",
+      user => 'root',
+      minute => 5,
+      hour => 2,
+    }
     
 ### Modules using puppet-s3cmd
 
