@@ -1,15 +1,15 @@
-## s3cmd Puppet Module
+# s3cmd Puppet Module
 
 *Work in progress*
 
 Installs and automatically configures [s3cmd](http://s3tools.org/s3tools). Useful for use with other modules or classes that have backup functionality
 
-### Required Varibles
+## Required Varibles
 
 * **$aws_access_key_id**
 * **$aws_secret_access_key**
 
-### Sample Setup
+## Sample Setup
 
     $aws_access_key_id="xxxx"
     $aws_secret_access_key="xxxxx"
@@ -23,6 +23,6 @@ Installs and automatically configures [s3cmd](http://s3tools.org/s3tools). Usefu
       hour => 2,
     }
     
-### Modules using puppet-s3cmd
+## Modules using puppet-s3cmd
 
 * [puppet-mysql](https://github.com/mattmcmanus/puppet-mysql)
